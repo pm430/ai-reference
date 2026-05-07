@@ -3,6 +3,7 @@ layout: post
 title: "하네스 엔지니어링 존재 이유부터 실전 예제까지"
 categories: onboarding
 tags: [Claude, 하네스 엔지니어링, Claude Code]
+date: 2026-05-07 12:47:00 +0900
 excerpt: "코딩알려주는누나 채널의 영상으로 하네스 엔지니어링의 개념과 실전 예제를 정리합니다."
 ---
 

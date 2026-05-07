@@ -3,6 +3,7 @@ layout: post
 title: "클로드 스킬, 서브에이전트, 커맨드 개념 한번에 이해하기"
 categories: onboarding
 tags: [Claude, 스킬, 서브에이전트, 커맨드]
+date: 2026-05-07 12:45:00 +0900
 excerpt: "코딩알려주는누나 채널의 영상으로 Claude Code의 핵심 개념인 스킬, 서브에이전트, 커맨드를 한번에 정리합니다."
 ---
 

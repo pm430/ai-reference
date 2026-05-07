@@ -3,6 +3,7 @@ layout: post
 title: "Anthropic 공식 Skills 저장소"
 categories: skills-mcp
 tags: [Claude Code, Skills, Anthropic]
+date: 2026-05-07 13:11:30 +0900
 excerpt: "Claude가 반복 작업을 재사용 가능한 방식으로 수행하도록 돕는 Anthropic 공식 스킬 모음입니다."
 ---
 

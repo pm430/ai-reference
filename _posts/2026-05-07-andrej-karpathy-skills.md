@@ -3,6 +3,7 @@ layout: post
 title: "Andrej Karpathy의 LLM 코딩 실수 방지 스킬"
 categories: skills-mcp
 tags: [Skills, Claude Code, Cursor, Karpathy]
+date: 2026-05-07 13:12:00 +0900
 excerpt: "AI 연구자 Andrej Karpathy의 관찰을 바탕으로 LLM이 코딩 시 자주 저지르는 실수를 방지하는 CLAUDE.md 스킬입니다."
 ---
 

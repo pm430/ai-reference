@@ -3,6 +3,7 @@ layout: post
 title: "Antigravity Awesome Skills — 1,400+ 에이전트 스킬 모음"
 categories: skills-mcp
 tags: [Skills, Claude Code, Cursor, Codex, Gemini CLI]
+date: 2026-05-07 13:11:20 +0900
 excerpt: "Claude Code, Cursor, Codex CLI, Gemini CLI 등 다양한 AI 코딩 에이전트에 설치 가능한 1,400개 이상의 스킬 플레이북 모음입니다."
 ---
 

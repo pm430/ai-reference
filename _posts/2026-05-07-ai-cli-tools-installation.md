@@ -3,6 +3,7 @@ layout: post
 title: "AI 코딩 에이전트 CLI 설치 가이드 (Claude Code, Gemini, Codex, Ollama)"
 categories: onboarding
 tags: [Claude Code, Gemini CLI, OpenAI Codex, Ollama, 설치]
+date: 2026-05-07 13:06:00 +0900
 excerpt: "주요 AI 코딩 에이전트 CLI 도구들의 Mac/Windows 설치 방법을 한곳에 정리합니다."
 ---
 

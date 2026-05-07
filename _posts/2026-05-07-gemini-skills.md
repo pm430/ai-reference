@@ -3,6 +3,7 @@ layout: post
 title: "Google Gemini Skills 저장소"
 categories: skills-mcp
 tags: [Gemini, Skills, Google]
+date: 2026-05-07 13:11:10 +0900
 excerpt: "Gemini API 활용 에이전트의 정확도를 높여주는 Google 공식 스킬 라이브러리입니다."
 ---
 
