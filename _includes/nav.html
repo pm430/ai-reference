@@ -12,10 +12,13 @@
       <span class="search-kbd">⌘K</span>
     </div>
 
+    <nav class="sidebar-nav">
+      <a href="{{ site.baseurl }}/" class="sidebar-link{% if page.url == '/' %} active{% endif %}">홈</a>
+    </nav>
+
     <div>
       <div class="sidebar-section-label">Sections</div>
       <nav class="sidebar-nav">
-        <a href="{{ site.baseurl }}/" class="sidebar-link{% if page.url == '/' %} active{% endif %}">홈</a>
         {% for cat in site.categories_list %}
           {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat.id" %}
           <a href="{{ site.baseurl }}/pages/{{ cat.id }}/" class="sidebar-link{% if page.category_id == cat.id %} active{% endif %}">
@@ -29,6 +32,7 @@
         {% endfor %}
       </nav>
     </div>
+
 
     <div class="sidebar-footer">
       <a href="https://github.com/pm430/ai-reference" target="_blank" rel="noopener" class="sidebar-link-sm">GitHub ↗</a>
