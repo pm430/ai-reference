@@ -194,6 +194,17 @@ a:hover { color: var(--accent-hover); }
   white-space: nowrap;
 }
 
+.badge-new {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.1rem 0.5rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
 .post-excerpt {
   font-size: 0.875rem;
   color: var(--text-muted);
