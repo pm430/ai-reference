@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign cat = site.categories_list | where: "id", page.category_id | first %}
-{% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category_id" %}
+{% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category_id" | sort: "date" | reverse %}
 
 <div class="page-wrapper">
   {% if cat %}
