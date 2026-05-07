@@ -1,0 +1,45 @@
+title: AI Reference
+description: AI 관련 참고자료 모음 — LLM, 프롬프트, 도구, 사례 정리
+baseurl: "/ai-reference"
+url: "https://pm430inputoutput.github.io"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 카테고리 정의
+categories_list:
+  - id: onboarding
+    name: 온보딩
+    desc: AI 기초 개념 및 입문 자료
+    icon: 🚀
+  - id: skills-mcp
+    name: 스킬 & MCP
+    desc: Claude Code 스킬, MCP 서버 활용
+    icon: 🔧
+  - id: cloud-llm
+    name: 클라우드 LLM
+    desc: Claude, GPT, Gemini 등 최신 동향
+    icon: ☁️
+  - id: local-llm
+    name: 로컬 LLM
+    desc: Ollama, LM Studio 등 로컬 실행 환경
+    icon: 💻
+  - id: prompt-engineering
+    name: 프롬프트 엔지니어링
+    desc: 효과적인 프롬프트 작성 기법
+    icon: ✍️
+  - id: use-cases
+    name: 적용 사례
+    desc: 실제 AI 활용 경험 및 사례
+    icon: 💡
+
+exclude:
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md

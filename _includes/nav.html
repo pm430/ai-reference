@@ -1,0 +1,17 @@
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="{{ site.baseurl }}/" class="nav-logo">AI <span>Reference</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="{{ site.baseurl }}/" {% if page.url == "/" %}class="active"{% endif %}>홈</a></li>
+      {% for cat in site.categories_list %}
+      <li><a href="{{ site.baseurl }}/pages/{{ cat.id }}/" {% if page.category_id == cat.id %}class="active"{% endif %}>{{ cat.name }}</a></li>
+      {% endfor %}
+    </ul>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+  </div>
+</nav>
+<script>
+  document.getElementById('menuBtn').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
