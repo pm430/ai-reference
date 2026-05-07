@@ -2,6 +2,7 @@ title: AI Reference
 description: AI 관련 참고자료 모음 — LLM, 프롬프트, 도구, 사례 정리
 baseurl: "/ai-reference"
 url: "https://pm430.github.io"
+version: "v0.1"
 
 markdown: kramdown
 highlighter: rouge

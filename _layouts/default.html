@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,55 @@
   {% seo %}
 </head>
 <body>
+  <div class="mobile-nav">
+    <a href="{{ site.baseurl }}/" class="mobile-nav-logo">AI Reference</a>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+  </div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
   {% include nav.html %}
-  <main>
-    {{ content }}
-  </main>
-  <footer class="site-footer">
-    <p>{{ site.title }} · AI 참고자료 모음 · <a href="https://github.com/pm430inputoutput/ai-reference">GitHub</a></p>
-  </footer>
+
+  <div class="main-content">
+    <main>{{ content }}</main>
+  </div>
+
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+
+    function updateThemeBtns(t) {
+      document.querySelectorAll('.theme-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.theme === t);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var t = localStorage.getItem('theme') || 'light';
+      updateThemeBtns(t);
+
+      document.querySelectorAll('.theme-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var next = btn.dataset.theme;
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeBtns(next);
+        });
+      });
+
+      var menuBtn = document.getElementById('menuBtn');
+      var sidebar = document.getElementById('sidebar');
+      var overlay = document.getElementById('sidebarOverlay');
+
+      function toggleSidebar() {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('open');
+      }
+
+      if (menuBtn) menuBtn.addEventListener('click', toggleSidebar);
+      if (overlay) overlay.addEventListener('click', toggleSidebar);
+    });
+  </script>
 </body>
 </html>

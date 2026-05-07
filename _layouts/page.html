@@ -2,52 +2,120 @@
 layout: default
 ---
 {% assign cat = site.categories_list | where: "id", page.category_id | first %}
+{% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category_id" %}
 
 <div class="page-wrapper">
   {% if cat %}
-  <div class="category-header">
-    <div class="icon">{{ cat.icon }}</div>
-    <div>
-      <h1>{{ cat.name }}</h1>
-      <p>{{ cat.desc }}</p>
-    </div>
-  </div>
 
-  {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category_id" %}
-  {% if cat_posts.size > 0 %}
-  <div class="post-list">
+    <div class="page-breadcrumb">
+      <a href="{{ site.baseurl }}/">home</a>
+      <span>/</span>
+      <span>{{ cat.id }}</span>
+    </div>
+
+    <h1 class="cat-title">{{ cat.name }}</h1>
+    <p class="cat-desc-text">{{ cat.desc }}</p>
+
+    {% assign now_s = site.time | date: "%s" | plus: 0 %}
+    {% assign new_count = 0 %}
+    {% assign total_words = 0 %}
     {% for post in cat_posts %}
-    <div class="post-item">
-      <div class="post-item-main">
-        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-        <div class="post-item-meta">
-          <span class="post-date">{{ post.date | date: "%Y. %m. %d" }}</span>
-          {% assign now_s = site.time | date: "%s" | plus: 0 %}
-          {% assign post_s = post.date | date: "%s" | plus: 0 %}
-          {% assign diff_days = now_s | minus: post_s | divided_by: 86400 %}
-          {% if diff_days <= 14 %}<span class="badge-new">NEW</span>{% endif %}
-          <span class="post-tag">{{ cat.name }}</span>
-          {% if post.tags %}
-            {% for tag in post.tags %}
-            <span class="post-tag">{{ tag }}</span>
-            {% endfor %}
-          {% endif %}
-        </div>
-        {% if post.excerpt %}
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    </div>
+      {% assign post_s = post.date | date: "%s" | plus: 0 %}
+      {% assign diff = now_s | minus: post_s | divided_by: 86400 %}
+      {% if diff <= 14 %}{% assign new_count = new_count | plus: 1 %}{% endif %}
+      {% assign words = post.content | number_of_words %}
+      {% assign total_words = total_words | plus: words %}
     {% endfor %}
-  </div>
-  {% else %}
-  <div class="empty-state">
-    <div style="font-size:2.5rem">📭</div>
-    <p>아직 등록된 글이 없습니다.</p>
-  </div>
-  {% endif %}
+    {% assign total_min = total_words | divided_by: 200 | at_least: 1 %}
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-label">Articles</span>
+        <span class="stat-value">{% if cat_posts.size < 10 %}0{% endif %}{{ cat_posts.size }}</span>
+      </div>
+      {% if cat_posts.size > 0 %}
+      <div class="stat-item">
+        <span class="stat-label">Total read</span>
+        <span class="stat-value">~{{ total_min }}분</span>
+      </div>
+      {% if cat_posts.first %}
+      <div class="stat-item">
+        <span class="stat-label">Last update</span>
+        <span class="stat-value">{{ cat_posts.first.date | date: "%Y.%m.%d" }}</span>
+      </div>
+      {% endif %}
+      {% if new_count > 0 %}
+      <div class="stat-item">
+        <span class="stat-label">Status</span>
+        <span class="stat-value"><span class="new-count">{{ new_count }} NEW</span></span>
+      </div>
+      {% endif %}
+      {% endif %}
+    </div>
+
+    {% if cat_posts.size > 0 %}
+      {% assign featured = cat_posts.first %}
+      {% assign featured_read = featured.content | number_of_words | divided_by: 200 | at_least: 1 %}
+      {% assign featured_s = featured.date | date: "%s" | plus: 0 %}
+      {% assign featured_diff = now_s | minus: featured_s | divided_by: 86400 %}
+
+      <div class="featured-section">
+        <div class="featured-label">
+          <span class="featured-label-title">Featured</span>
+          <span class="featured-label-pick">editor's pick</span>
+        </div>
+        <div class="featured-card">
+          <div class="featured-card-eyebrow">최신 추천 · {{ cat.name }}</div>
+          <div class="featured-card-title">{{ featured.title }}</div>
+          {% if featured.excerpt %}
+          <div class="featured-card-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</div>
+          {% endif %}
+          <div class="featured-card-bottom">
+            <div class="featured-card-info">
+              {% if featured_diff <= 14 %}<span class="badge-new">NEW</span>{% endif %}
+              <span class="post-meta-date">{{ featured.date | date: "%Y.%m.%d" }}</span>
+              <span class="post-meta-read">· {{ featured_read }}분</span>
+              {% for tag in featured.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}
+            </div>
+            <a href="{{ featured.url | prepend: site.baseurl }}" class="featured-read-btn">→ read</a>
+          </div>
+        </div>
+      </div>
+
+      {% if cat_posts.size > 1 %}
+      <div class="articles-section">
+        <div class="articles-header">
+          <span class="block-title">All Articles</span>
+          <span class="articles-sort">sort: newest · view: list</span>
+        </div>
+        <div class="articles-list">
+          {% for post in cat_posts offset: 1 %}
+            {% assign post_s = post.date | date: "%s" | plus: 0 %}
+            {% assign diff = now_s | minus: post_s | divided_by: 86400 %}
+            {% assign read_min = post.content | number_of_words | divided_by: 200 | at_least: 1 %}
+            {% assign display_idx = forloop.index | plus: 1 %}
+            <div class="article-item">
+              <span class="article-num">{% if display_idx < 10 %}0{% endif %}{{ display_idx }}</span>
+              <div class="article-main">
+                <a href="{{ post.url | prepend: site.baseurl }}" class="article-title">{{ post.title }}</a>
+                <div class="article-meta">
+                  {% if diff <= 14 %}<span class="badge-new">NEW</span>{% endif %}
+                  {% for tag in post.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}
+                  <span class="article-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                </div>
+              </div>
+              <span class="article-read">{{ read_min }}분</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+    {% else %}
+      <div class="empty-state">아직 등록된 글이 없습니다.</div>
+    {% endif %}
 
   {% else %}
-  {{ content }}
+    {{ content }}
   {% endif %}
 </div>

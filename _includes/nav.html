@@ -1,17 +1,44 @@
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="{{ site.baseurl }}/" class="nav-logo">AI <span>Reference</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="{{ site.baseurl }}/" {% if page.url == "/" %}class="active"{% endif %}>홈</a></li>
-      {% for cat in site.categories_list %}
-      <li><a href="{{ site.baseurl }}/pages/{{ cat.id }}/" {% if page.category_id == cat.id %}class="active"{% endif %}>{{ cat.name }}</a></li>
-      {% endfor %}
-    </ul>
-    <button class="nav-menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-inner">
+
+    <div class="sidebar-logo">
+      <span class="sidebar-author">pm430</span>
+      <a href="{{ site.baseurl }}/" class="sidebar-title">AI Reference</a>
+    </div>
+
+    <div class="sidebar-search">
+      <span>⌕</span>
+      <input type="text" placeholder="검색…" disabled aria-label="검색">
+      <span class="search-kbd">⌘K</span>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Sections</div>
+      <nav class="sidebar-nav">
+        <a href="{{ site.baseurl }}/" class="sidebar-link{% if page.url == '/' %} active{% endif %}">홈</a>
+        {% for cat in site.categories_list %}
+          {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat.id" %}
+          <a href="{{ site.baseurl }}/pages/{{ cat.id }}/" class="sidebar-link{% if page.category_id == cat.id %} active{% endif %}">
+            {{ cat.name }}
+            {% if cat_posts.size > 0 %}
+              <span class="sidebar-count">{% if cat_posts.size < 10 %}0{% endif %}{{ cat_posts.size }}</span>
+            {% else %}
+              <span class="sidebar-count">···</span>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="https://github.com/pm430/ai-reference" target="_blank" rel="noopener" class="sidebar-link-sm">GitHub ↗</a>
+      <a href="{{ site.baseurl }}/feed.xml" class="sidebar-link-sm">RSS</a>
+      <div class="theme-toggle">
+        <button class="theme-btn" data-theme="light">Light</button>
+        <button class="theme-btn" data-theme="dark">Dark</button>
+      </div>
+      <div class="sidebar-version">{{ site.version }} · {{ site.time | date: "%Y.%m" }}</div>
+    </div>
+
   </div>
-</nav>
-<script>
-  document.getElementById('menuBtn').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-</script>
+</aside>
