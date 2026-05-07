@@ -26,5 +26,25 @@ layout: default
     <div class="post-content">
       {{ content }}
     </div>
+
+    <div class="post-pagination">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | prepend: site.baseurl }}" class="post-pagination-link prev">
+          <span class="pagination-dir">← 이전 글</span>
+          <span class="pagination-title">{{ page.previous.title }}</span>
+        </a>
+      {% else %}
+        <div class="post-pagination-empty"></div>
+      {% endif %}
+
+      {% if page.next %}
+        <a href="{{ page.next.url | prepend: site.baseurl }}" class="post-pagination-link next">
+          <span class="pagination-dir">다음 글 →</span>
+          <span class="pagination-title">{{ page.next.title }}</span>
+        </a>
+      {% else %}
+        <div class="post-pagination-empty"></div>
+      {% endif %}
+    </div>
   </article>
 </div>

@@ -57,6 +57,27 @@
 
       if (menuBtn) menuBtn.addEventListener('click', toggleSidebar);
       if (overlay) overlay.addEventListener('click', toggleSidebar);
+
+      // Code Block Copy Button
+      document.querySelectorAll('.post-content pre').forEach(function(pre) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        wrapper.appendChild(btn);
+
+        btn.addEventListener('click', function() {
+          var code = pre.querySelector('code').innerText;
+          navigator.clipboard.writeText(code).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+          });
+        });
+      });
     });
   </script>
 </body>
