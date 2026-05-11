@@ -24,7 +24,7 @@ npx antigravity-awesome-skills
 ## 스킬 카테고리
 
 | 카테고리 | 내용 |
-|---|---|
+| --- | --- |
 | Development & Backend | 백엔드 개발, API 설계 |
 | Testing & QA | 테스트 자동화, 품질 관리 |
 | Security & Auditing | 보안 감사, 취약점 분석 |
