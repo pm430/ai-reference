@@ -23,9 +23,38 @@ layout: default
         {% for tag in page.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}
       </div>
     </div>
+    <div class="post-toc" id="postToc" style="display:none;">
+      <span class="post-toc-title">목차</span>
+      <ul id="tocList"></ul>
+    </div>
     <div class="post-content">
       {{ content }}
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var content = document.querySelector('.post-content');
+        var tocList = document.getElementById('tocList');
+        var postToc = document.getElementById('postToc');
+        var headers = content.querySelectorAll('h2, h3');
+        
+        if (headers.length > 1) {
+          postToc.style.display = 'block';
+          headers.forEach(function(header, index) {
+            var id = header.id || 'header-' + index;
+            header.id = id;
+            
+            var li = document.createElement('li');
+            li.className = 'toc-' + header.tagName.toLowerCase();
+            var a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = header.textContent;
+            li.appendChild(a);
+            tocList.appendChild(li);
+          });
+        }
+      });
+    </script>
 
     <div class="post-pagination">
       {% if page.previous %}

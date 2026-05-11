@@ -1,0 +1,50 @@
+---
+layout: default
+title: 태그 목록
+permalink: /pages/tags/
+---
+
+<div class="page-wrapper">
+  <div class="page-breadcrumb">
+    <a href="{{ site.baseurl }}/">home</a>
+    <span>/</span>
+    <span>tags</span>
+  </div>
+
+  <h1 class="cat-title">Tags</h1>
+  <p class="cat-desc-text">포스트에 포함된 모든 태그별로 내용을 모아볼 수 있습니다.</p>
+
+  <div class="tag-cloud" style="margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 0.8rem;">
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+      <a href="#{{ tag[0] | slugify }}" class="post-tag" style="font-size: 1rem; padding: 0.4rem 0.8rem;">
+        {{ tag[0] }} <span style="opacity: 0.5; font-size: 0.8rem;">{{ tag[1].size }}</span>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="tags-sections">
+    {% for tag in tags %}
+      <div id="{{ tag[0] | slugify }}" class="tag-section" style="margin-top: 3rem;">
+        <h2 style="font-size: 1.3rem; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+          # {{ tag[0] }}
+        </h2>
+        <div class="articles-list">
+          {% for post in tag[1] %}
+            {% assign read_min = post.content | number_of_words | divided_by: 200 | at_least: 1 %}
+            <div class="article-item">
+              <span class="article-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+              <div class="article-main">
+                <a href="{{ post.url | prepend: site.baseurl }}" class="article-title">{{ post.title }}</a>
+                <div class="article-meta">
+                  <span class="article-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                  <span class="post-meta-read">· {{ read_min }}분</span>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

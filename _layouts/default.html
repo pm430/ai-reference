@@ -6,6 +6,7 @@
   <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src https://www.youtube.com; img-src 'self' data:;">
   {% seo %}
 </head>
 <body>
@@ -77,6 +78,36 @@
             setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
           });
         });
+      });
+    });
+  </script>
+  <script src="{{ site.baseurl }}/assets/js/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Search
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('searchInput'),
+        resultsContainer: document.getElementById('searchResults'),
+        json: '{{ site.baseurl }}/search.json',
+        searchResultTemplate: '<a href="{url}" class="search-result-item"><span class="search-result-title">{title}</span><span class="search-result-meta">{category} · {date}</span></a>',
+        noResultsText: '<div class="search-result-item"><span class="search-result-meta">결과를 찾을 수 없습니다.</span></div>'
+      });
+
+      // Keyboard Shortcut (⌘K or Ctrl+K)
+      document.addEventListener('keydown', function(e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          var input = document.getElementById('searchInput');
+          if (input) {
+            input.focus();
+            // If sidebar is closed on mobile, open it
+            var sidebar = document.getElementById('sidebar');
+            if (sidebar && !sidebar.classList.contains('open') && window.innerWidth <= 840) {
+              sidebar.classList.add('open');
+              document.getElementById('sidebarOverlay').classList.add('open');
+            }
+          }
+        }
       });
     });
   </script>

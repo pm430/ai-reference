@@ -6,11 +6,12 @@
       <a href="{{ site.baseurl }}/" class="sidebar-title">AI Reference</a>
     </div>
 
-    <div class="sidebar-search" style="opacity: 0.6; cursor: not-allowed;" title="검색 기능 준비중">
+    <div class="sidebar-search">
       <span>⌕</span>
-      <input type="text" placeholder="검색 (준비중)…" disabled aria-label="검색" style="cursor: not-allowed;">
+      <input type="text" id="searchInput" placeholder="검색 (⌘K)…" aria-label="검색">
       <span class="search-kbd">⌘K</span>
     </div>
+    <div id="searchResults" class="search-results-container"></div>
 
     <div class="sidebar-section">
       <nav class="sidebar-nav">
@@ -37,7 +38,7 @@
 
 
     <div class="sidebar-footer">
-      <a href="https://github.com/pm430/ai-reference" target="_blank" rel="noopener" class="sidebar-link-sm">GitHub ↗</a>
+      <a href="https://github.com/pm430/ai-reference" target="_blank" rel="noopener noreferrer" class="sidebar-link-sm">GitHub ↗</a>
       <a href="{{ site.baseurl }}/feed.xml" class="sidebar-link-sm">RSS</a>
       <div class="theme-toggle">
         <button class="theme-btn" data-theme="light">Light</button>
