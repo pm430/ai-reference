@@ -109,10 +109,32 @@
   <script src="{{ site.baseurl }}/assets/js/simple-jekyll-search.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Search Modal Control
+      var searchModal = document.getElementById('searchModal');
+      var modalInput = document.getElementById('modalSearchInput');
+      var sidebarSearch = document.querySelector('.sidebar-search');
+
+      function openSearch() {
+        searchModal.classList.add('open');
+        setTimeout(function() { modalInput.focus(); }, 50);
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSearch() {
+        searchModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      if (sidebarSearch) sidebarSearch.addEventListener('click', openSearch);
+      
+      searchModal.addEventListener('click', function(e) {
+        if (e.target === searchModal) closeSearch();
+      });
+
       // Initialize Search
       SimpleJekyllSearch({
-        searchInput: document.getElementById('searchInput'),
-        resultsContainer: document.getElementById('searchResults'),
+        searchInput: modalInput,
+        resultsContainer: document.getElementById('modalSearchResults'),
         json: '{{ site.baseurl }}/search.json',
         searchResultTemplate: '<a href="{url}" class="search-result-item"><span class="search-result-title">{title}</span><span class="search-result-meta">{category} · {date}</span></a>',
         noResultsText: '<div class="search-result-item"><span class="search-result-meta">결과를 찾을 수 없습니다.</span></div>'
@@ -122,13 +144,17 @@
       document.addEventListener('keydown', function(e) {
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
           e.preventDefault();
-          var input = document.getElementById('searchInput');
-          if (input) {
-            input.focus();
-            // If sidebar is closed on mobile, open it
-            var sidebar = document.getElementById('sidebar');
-            if (sidebar && !sidebar.classList.contains('open') && window.innerWidth <= 840) {
-              sidebar.classList.add('open');
+          openSearch();
+        }
+        if (e.key === 'Escape' && searchModal.classList.contains('open')) {
+          closeSearch();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+         sidebar.classList.add('open');
               document.getElementById('sidebarOverlay').classList.add('open');
             }
           }
