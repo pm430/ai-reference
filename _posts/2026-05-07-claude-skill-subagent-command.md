@@ -7,7 +7,7 @@ date: 2026-05-07 12:45:00 +0900
 excerpt: "코딩알려주는누나 채널의 영상으로 Claude Code의 핵심 개념인 스킬, 서브에이전트, 커맨드를 한번에 정리합니다."
 ---
 
-{% include youtube.html id="2eqPBLgVH0U" title="클로드 스캘, 서브에이전트, 커맨드 개념 몰랐던 사람 한번에 이해시켜드림" %}
+{% include youtube.html id="2eqPBLgVH0U" title="클로드 스킬, 서브에이전트, 커맨드 개념 몰랐던 사람 한번에 이해시켜드림" %}
 
 **출처:** [코딩알려주는누나](https://www.youtube.com/@coding_unnie)
 
