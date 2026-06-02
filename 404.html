@@ -1,0 +1,37 @@
+---
+layout: default
+title: 페이지를 찾을 수 없습니다
+permalink: /404.html
+---
+
+<div class="page-wrapper">
+  <div class="page-breadcrumb">
+    <a href="{{ site.baseurl }}/">home</a>
+    <span>/</span>
+    <span>404</span>
+  </div>
+
+  <h1 class="cat-title">페이지를 찾을 수 없습니다</h1>
+  <p class="cat-desc-text">요청하신 페이지가 존재하지 않거나 이동되었습니다. 주소를 다시 확인하시거나 아래에서 다른 글을 살펴보세요.</p>
+
+  <div class="empty-state" style="text-align: center; padding: 4rem 0 2rem;">
+    <div style="font-size: 4.5rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text-faint); margin-bottom: 1.5rem; line-height: 1;">404</div>
+    <a href="{{ site.baseurl }}/" style="display: inline-block; padding: 0.65rem 1.3rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.88rem; font-weight: 500; color: var(--text); transition: background 0.1s, border-color 0.1s;">← 홈으로 돌아가기</a>
+  </div>
+
+  <div class="block-header" style="margin-top: 3rem;">
+    <span class="block-title">Sections</span>
+    <span class="block-sub">원하는 주제를 찾아보세요</span>
+  </div>
+  <div class="sections-list">
+    {% for cat in site.categories_list %}
+      {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat.id" %}
+      <a href="{{ site.baseurl }}/pages/{{ cat.id }}/" class="section-item">
+        <span class="section-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <span class="section-name">{{ cat.icon }} {{ cat.name }}</span>
+        <span class="section-count">{% if cat_posts.size > 0 %}{% if cat_posts.size < 10 %}0{% endif %}{{ cat_posts.size }} articles{% else %}coming soon{% endif %}</span>
+        <span class="section-arrow">→</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>
