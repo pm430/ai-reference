@@ -30,7 +30,7 @@ description: 이 스킬이 무엇을 하는지, 언제 사용하는지 설명
 ## 제공 스킬 카테고리
 
 | 카테고리 | 내용 |
-|---|---|
+| --- | --- |
 | Creative & Design | 아트, 음악, 디자인 관련 작업 |
 | Development & Technical | 웹 앱 테스트, MCP 서버 생성 등 |
 | Enterprise & Communication | 기업 워크플로우 자동화 |

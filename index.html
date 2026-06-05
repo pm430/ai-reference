@@ -47,7 +47,7 @@ title: 홈
       {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat.id" %}
       <a href="{{ site.baseurl }}/pages/{{ cat.id }}/" class="section-item">
         <span class="section-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
-        <span class="section-name">{{ cat.name }}</span>
+        <span class="section-name">{{ cat.icon }} {{ cat.name }}</span>
         <span class="section-count">{% if cat_posts.size > 0 %}{% if cat_posts.size < 10 %}0{% endif %}{{ cat_posts.size }} articles{% else %}coming soon{% endif %}</span>
         <span class="section-arrow">→</span>
       </a>

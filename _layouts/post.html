@@ -52,6 +52,29 @@ layout: default
             li.appendChild(a);
             tocList.appendChild(li);
           });
+
+          // ScrollSpy
+          var tocLinks = tocList.querySelectorAll('a');
+          var observerOptions = {
+            root: null,
+            rootMargin: '-10% 0px -80% 0px',
+            threshold: 0
+          };
+
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                var id = entry.target.id;
+                tocLinks.forEach(function(link) {
+                  link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                });
+              }
+            });
+          }, observerOptions);
+
+          headers.forEach(function(header) {
+            observer.observe(header);
+          });
         }
       });
     </script>

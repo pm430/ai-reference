@@ -8,10 +8,9 @@
 
     <div class="sidebar-search">
       <span>⌕</span>
-      <input type="text" id="searchInput" placeholder="검색 (⌘K)…" aria-label="검색">
+      <input type="text" id="searchInput" placeholder="검색 (⌘K)…" aria-label="검색" readonly>
       <span class="search-kbd">⌘K</span>
     </div>
-    <div id="searchResults" class="search-results-container"></div>
 
     <div class="sidebar-section">
       <nav class="sidebar-nav">
@@ -25,7 +24,7 @@
         {% for cat in site.categories_list %}
           {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat.id" %}
           <a href="{{ site.baseurl }}/pages/{{ cat.id }}/" class="sidebar-link{% if page.category_id == cat.id %} active{% endif %}">
-            {{ cat.name }}
+            <span>{{ cat.icon }} {{ cat.name }}</span>
             {% if cat_posts.size > 0 %}
               <span class="sidebar-count">{% if cat_posts.size < 10 %}0{% endif %}{{ cat_posts.size }}</span>
             {% else %}
@@ -38,11 +37,15 @@
 
 
     <div class="sidebar-footer">
-      <a href="https://github.com/pm430/ai-reference" target="_blank" rel="noopener noreferrer" class="sidebar-link-sm">GitHub ↗</a>
-      <a href="{{ site.baseurl }}/feed.xml" class="sidebar-link-sm">RSS</a>
-      <div class="theme-toggle">
-        <button class="theme-btn" data-theme="light">Light</button>
-        <button class="theme-btn" data-theme="dark">Dark</button>
+      <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <div class="theme-toggle">
+          <button class="theme-btn" data-theme="light" title="라이트 모드">☀️</button>
+          <button class="theme-btn" data-theme="dark" title="다크 모드">🌙</button>
+        </div>
+        <div style="display:flex; gap: 0.5rem;">
+          <a href="https://github.com/pm430/ai-reference" target="_blank" rel="noopener noreferrer" class="sidebar-link-sm" style="padding:0">GitHub</a>
+          <a href="{{ site.baseurl }}/feed.xml" class="sidebar-link-sm" style="padding:0">RSS</a>
+        </div>
       </div>
       <div class="sidebar-version">{{ site.version }} · {{ site.time | date: "%Y.%m" }}</div>
     </div>
