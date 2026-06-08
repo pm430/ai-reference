@@ -102,6 +102,7 @@ what hooks should I use?
 설정 항목 하나하나를 직접 작성하는 법이 궁금하다면 아래 글들을 함께 보세요.
 
 **관련 글**
+- {% post_url 2026-06-09-claude-code-essentials-20 %} — Claude Code 필수 지식 정리(13분 영상)
 - {% post_url 2026-05-07-ai-cli-tools-installation %} — Claude Code 설치 방법
 - {% post_url 2026-05-18-mcp-the-future-of-ai-tooling %} — MCP 개념 심화
 - {% post_url 2026-05-07-anthropic-skills %} — Anthropic 공식 스킬 목록
