@@ -79,6 +79,7 @@ MCP가 무엇이고 왜 중요한지는 {% post_url 2026-05-18-mcp-the-future-of
 Claude Code는 "AI에게 코드 좀 고쳐줘"라고 던지는 채팅창이 아니라, **컨텍스트를 설계하고 워크플로우를 자동화하는 개발 환경**입니다. 영상으로 큰 그림을 잡았다면, 이제 `CLAUDE.md`부터 한 줄 적어보는 것이 가장 빠른 첫걸음입니다.
 
 **관련 글**
+- {% post_url 2026-06-09-claude-md-best-practices %} — CLAUDE.md 잘 쓰는 법
 - {% post_url 2026-05-07-ai-cli-tools-installation %} — Claude Code 설치 방법
 - {% post_url 2026-05-07-claude-skill-subagent-command %} — 스킬·서브에이전트·커맨드 개념
 - {% post_url 2026-06-08-claude-code-setup-guide %} — 자동화 추천 공식 플러그인
