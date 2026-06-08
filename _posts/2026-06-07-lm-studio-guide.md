@@ -183,4 +183,4 @@ LM Studio는 **로컬 LLM의 진입장벽을 크게 낮춰 준 도구**입니다
 - [Ollama: 왜 로컬 LLM을 써야 하고, 어떻게 시작할까?]({% post_url 2026-05-11-ollama-local-llm %})
 - [Anthropic Claude 실전 가이드 — Opus, Sonnet, Haiku 선택법]({% post_url 2026-06-06-anthropic-claude-guide %})
 - [OpenRouter: 왜 써야 하고, 어떻게 모든 LLM을 통합할까?]({% post_url 2026-05-11-openrouter-unified-api %})
-- [Andrej Karpathy의 LLM Wiki: 나만의 AI 세컨드 브레인 구축하기]({% post_url 2026-05-11-andrej-karpathy-llm101n %})
+- [Andrej Karpathy의 LLM Wiki: 나만의 AI 세컨드 브레인 구축하기]({% post_url 2026-05-11-andrej-karpathy-llm-wiki %})

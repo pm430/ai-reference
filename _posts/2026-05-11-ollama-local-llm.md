@@ -77,5 +77,5 @@ ollama run phi3
 
 **관련 포스트:**
 
-- [Andrej Karpathy의 LLM101n: 직접 LLM 만들기]({% post_url 2026-05-11-andrej-karpathy-llm101n %}) - 모델의 내부 원리가 궁금하다면?
+- [Andrej Karpathy의 LLM101n: 직접 LLM 만들기]({% post_url 2026-05-11-andrej-karpathy-llm-wiki %}) - 모델의 내부 원리가 궁금하다면?
 - [OpenRouter: 모든 LLM을 하나의 API로]({% post_url 2026-05-11-openrouter-unified-api %}) - 로컬 사양이 부족할 때 가장 합리적인 대안
