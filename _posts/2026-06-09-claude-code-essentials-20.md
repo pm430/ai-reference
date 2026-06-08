@@ -3,7 +3,7 @@ layout: post
 title: "Claude Code 필수 지식 정리 — 13분 영상으로 입문하고, 핵심만 다시 짚기"
 categories: onboarding
 tags: [Claude Code, 입문, 컨텍스트, Skills, Subagent, MCP, Hooks]
-date: 2026-06-09 10:00:00 +0900
+date: 2026-06-09 00:00:00 +0900
 excerpt: "Claude Code를 막 시작했다면 13분짜리 정리 영상으로 큰 그림을 잡고, 이 글에서 설치·컨텍스트 관리·확장 기능 같은 핵심 지식을 카테고리별로 다시 짚어보세요."
 ---
 
