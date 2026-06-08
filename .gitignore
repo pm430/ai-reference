@@ -4,7 +4,8 @@ _site/
 .jekyll-metadata
 vendor/
 Gemfile.lock
-.claude/
+.claude/*
+!.claude/skills/
 CLAUDE.md
 markup/
 .serena/
