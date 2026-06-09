@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026 AI 트렌드: LLM을 넘어 에이전틱 워크플로우(Agentic Workflow)로"
-categories: skills-mcp
+categories: onboarding
 tags: [AI Trends, Agentic Workflow, MCP, LLM, Future]
 date: 2026-05-18 12:00:00 +0900
 excerpt: "단순한 질의응답을 넘어 스스로 도구를 사용하고 문제를 해결하는 에이전틱 워크플로우가 왜 중요한지, 그리고 현재 어떤 도구들이 이를 주도하고 있는지 분석합니다."

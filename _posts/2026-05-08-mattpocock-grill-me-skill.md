@@ -82,3 +82,11 @@ curl -o %USERPROFILE%\.claude\skills\grill-me\SKILL.md ^
 - 한 번에 하나의 질문 → 사용자 인지 부하 최소화
 - 추천 답변 동반 → 단순 질문 폭격이 아닌 **협업적 인터뷰**
 - 코드로 답할 수 있는 건 코드를 본다 → 불필요한 핑퐁 차단
+
+---
+
+**관련 글**
+
+- [Anthropic 공식 Skills 저장소]({% post_url 2026-05-07-anthropic-skills %}) — Anthropic 공식 스킬 모음
+- [Antigravity Awesome Skills — 1,400+ 에이전트 스킬 모음]({% post_url 2026-05-07-antigravity-awesome-skills %}) — 더 많은 커뮤니티 스킬 찾아보기
+- [클로드 스킬, 서브에이전트, 커맨드 개념 한번에 이해하기]({% post_url 2026-05-07-claude-skill-subagent-command %}) — 스킬 개념이 처음이라면

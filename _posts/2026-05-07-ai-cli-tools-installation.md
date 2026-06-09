@@ -75,3 +75,11 @@ Node.js 환경에서 Mac/Windows 공통 설치 가능합니다.
 | --- | --- |
 | Amp CLI | `npm install -g amp-cli` |
 | AI CLI | `npm install -g @justinhandley/ai-cli` |
+
+---
+
+**관련 글**
+
+- [Claude Code 필수 지식 정리 — 13분 영상으로 입문하고, 핵심만 다시 짚기]({% post_url 2026-06-09-claude-code-essentials-20 %}) — 설치 후 Claude Code 입문 핵심 정리
+- [클로드 스킬, 서브에이전트, 커맨드 개념 한번에 이해하기]({% post_url 2026-05-07-claude-skill-subagent-command %}) — 설치 후 알아야 할 핵심 개념
+- [Ollama: 왜 로컬 LLM을 써야 하고, 어떻게 시작할까?]({% post_url 2026-05-11-ollama-local-llm %}) — Ollama로 로컬 LLM 시작하기

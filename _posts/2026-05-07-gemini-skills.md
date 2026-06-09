@@ -38,3 +38,11 @@ npx skills add
 # Context7 skills CLI
 npx ctx7 skills install
 ```
+
+---
+
+**관련 글**
+
+- [Gemini CLI Skill Creator: 나만의 맞춤형 에이전트 스킬 만들기]({% post_url 2026-05-18-gemini-cli-skill-creator %}) — 나만의 Gemini 스킬 직접 만들기
+- [Antigravity Awesome Skills — 1,400+ 에이전트 스킬 모음]({% post_url 2026-05-07-antigravity-awesome-skills %}) — 에이전트 공용 스킬 모음
+- [AI 코딩 에이전트 CLI 설치 가이드 (Claude Code, Gemini, Codex, Ollama)]({% post_url 2026-05-07-ai-cli-tools-installation %}) — Gemini CLI 설치 방법

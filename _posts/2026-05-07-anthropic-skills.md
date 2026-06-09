@@ -42,3 +42,11 @@ description: 이 스킬이 무엇을 하는지, 언제 사용하는지 설명
 
 - `./spec` 폴더에서 Agent Skills 전체 사양 확인 가능
 - `./template` 폴더로 커스텀 스킬 직접 제작 가능
+
+---
+
+**관련 글**
+
+- [Andrej Karpathy의 LLM 코딩 실수 방지 스킬]({% post_url 2026-05-07-andrej-karpathy-skills %}) — 커뮤니티의 대표 스킬 사례
+- [Antigravity Awesome Skills — 1,400+ 에이전트 스킬 모음]({% post_url 2026-05-07-antigravity-awesome-skills %}) — 더 방대한 커뮤니티 스킬 모음
+- [claude-code-setup — 코드베이스를 분석해 자동화를 추천하는 공식 플러그인]({% post_url 2026-06-08-claude-code-setup-guide %}) — 어떤 스킬을 추가할지 추천받기
