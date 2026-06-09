@@ -6,6 +6,7 @@ vendor/
 Gemfile.lock
 .claude/*
 !.claude/skills/
+.claude/skills/*-workspace/
 CLAUDE.md
 markup/
 .serena/
