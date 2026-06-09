@@ -41,3 +41,11 @@ curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy
 > LLM은 막연한 지시보다 **검증 가능한 목표**가 주어질 때 훨씬 정확하게 반복 작업을 수행합니다.
 
 단순해 보이지만 이 4가지 원칙을 적용하면 불필요한 코드 변경, 과도한 추상화, 반복적인 수정 요청을 크게 줄일 수 있습니다.
+
+---
+
+**관련 글**
+
+- [Anthropic 공식 Skills 저장소]({% post_url 2026-05-07-anthropic-skills %}) — Anthropic 공식 스킬 모음
+- [Antigravity Awesome Skills — 1,400+ 에이전트 스킬 모음]({% post_url 2026-05-07-antigravity-awesome-skills %}) — 다양한 에이전트용 스킬 플레이북
+- [AI와 함께하는 리팩토링 — 실전 5단계 워크플로우]({% post_url 2026-06-04-ai-refactor-workflow %}) — 이 스킬이 빛나는 실전 리팩토링 사례

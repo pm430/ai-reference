@@ -36,3 +36,11 @@ npx antigravity-awesome-skills
 
 - **번들:** Full-Stack Developer, Security Engineer 등 역할별 추천 스킬 묶음 제공
 - **워크플로우:** 순서가 정해진 결과 중심 스킬 실행 흐름 지원
+
+---
+
+**관련 글**
+
+- [Anthropic 공식 Skills 저장소]({% post_url 2026-05-07-anthropic-skills %}) — Anthropic 공식 스킬 모음
+- [Google Gemini Skills 저장소]({% post_url 2026-05-07-gemini-skills %}) — Google 공식 스킬 라이브러리
+- [Matt Pocock의 grill-me 스킬 — 계획을 끝까지 심문하기]({% post_url 2026-05-08-mattpocock-grill-me-skill %}) — 개성 있는 단일 스킬 사례

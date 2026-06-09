@@ -176,6 +176,7 @@ AI는 디버깅에서 *정답을 맞히는 도구*가 아니라, **생각을 정
 
 **관련 포스트:**
 
+- [Claude Code와 Gemini CLI로 구현한 실전 디버깅 및 자동화 사례]({% post_url 2026-05-29-ai-coding-agent-usecase %})
 - [AI와 함께하는 리팩토링 — 실전 5단계 워크플로우]({% post_url 2026-06-04-ai-refactor-workflow %})
 - [프롬프트 엔지니어링 5가지 핵심 패턴 — Zero-shot부터 ReAct까지]({% post_url 2026-06-03-prompt-engineering-5-patterns %})
 - [하네스 엔지니어링 존재 이유부터 실전 예제까지]({% post_url 2026-05-07-harness-engineering %})

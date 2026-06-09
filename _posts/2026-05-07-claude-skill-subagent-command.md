@@ -24,3 +24,11 @@ excerpt: "코딩알려주는누나 채널의 영상으로 Claude Code의 핵심 
 - 스킬은 프로젝트 또는 글로벌 단위로 정의해 재사용 가능
 - 서브에이전트는 독립된 컨텍스트로 실행되므로 메인 대화를 오염시키지 않음
 - 커맨드(`/help`, `/clear`, `/review` 등)는 Claude Code 사용 효율을 크게 높여줌
+
+---
+
+**관련 글**
+
+- [Claude Code 필수 지식 정리 — 13분 영상으로 입문하고, 핵심만 다시 짚기]({% post_url 2026-06-09-claude-code-essentials-20 %}) — Claude Code 전체 그림 잡기
+- [Anthropic 공식 Skills 저장소]({% post_url 2026-05-07-anthropic-skills %}) — 바로 설치해 쓸 수 있는 공식 스킬
+- [Gemini CLI Skill Creator: 나만의 맞춤형 에이전트 스킬 만들기]({% post_url 2026-05-18-gemini-cli-skill-creator %}) — Gemini CLI에서의 스킬 활용
