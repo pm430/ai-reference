@@ -1,13 +1,17 @@
 ---
 name: ai-reference-post
 description: >-
-  Write or edit blog posts for the ai-reference Jekyll site (pm430.github.io/ai-reference).
-  Use this whenever the user wants to add, draft, rewrite, or fix a post for this blog —
-  including turning a YouTube video, a tool, a GitHub repo, or a concept into an article.
-  Trigger even when the user only says things like "이 영상으로 글 써줘", "새 포스트 추가해줘",
-  "이 글 다시 써줘", "OOO 소개 글 만들어줘", or pastes a link and asks for a related post.
-  This skill encodes the site's exact front matter, category, cross-link, YouTube-embed,
-  and GitHub Pages publishing rules so the build never breaks.
+  Use this skill whenever the user wants to create, add, draft, rewrite, fix, or
+  cross-link a post on their personal AI/dev blog — the ai-reference Jekyll site at
+  pm430.github.io/ai-reference. Trigger on any request to "add/write a new post,"
+  "정리 포스트 만들어줘," "글 하나 더 올리자/추가해줘," "다시 써줘," whether the source is a
+  topic, concept, news/announcement, tool, GitHub repo, YouTube video, or a roundup of
+  articles. Trigger when the user names one of this site's categories (onboarding,
+  skills-mcp, cloud-llm, local-llm, prompt-engineering, use-cases), or asks to link new
+  and existing posts together. The skill knows the site's _posts naming, front matter,
+  categories, cross-link, YouTube-embed, and GitHub Pages publishing rules so the build
+  never breaks. Do NOT use it for setting up a brand-new Jekyll/blog site from scratch,
+  editing _config.yml or layouts alone, writing CLAUDE.md, or general non-blog coding tasks.
 ---
 
 # ai-reference 블로그 글 작성
