@@ -182,3 +182,5 @@ AI는 디버깅에서 *정답을 맞히는 도구*가 아니라, **생각을 정
 - [하네스 엔지니어링 존재 이유부터 실전 예제까지]({% post_url 2026-05-07-harness-engineering %})
 - [AI 코딩 에이전트 CLI 설치 가이드 (Claude Code, Gemini, Codex, Ollama)]({% post_url 2026-05-07-ai-cli-tools-installation %})
 - [2026 AI 트렌드: LLM을 넘어 에이전틱 워크플로우로]({% post_url 2026-05-18-mcp-the-future-of-ai-tooling %})
+- [AI가 짠 코드, 어떻게 믿을 것인가 — 검증 전략의 모든 것]({% post_url 2026-06-10-verify-ai-generated-code %}) — 버그 수정 후 검증 체계
+- [Spring 백엔드 개발에 AI 코딩 에이전트 적용하기 — 실무 가이드]({% post_url 2026-06-10-ai-agent-spring-backend %}) — 백엔드 버그 추적 워크플로우 실전
