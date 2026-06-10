@@ -32,3 +32,4 @@ excerpt: "코딩알려주는누나 채널의 영상으로 하네스 엔지니어
 - [클로드 스킬, 서브에이전트, 커맨드 개념 한번에 이해하기]({% post_url 2026-05-07-claude-skill-subagent-command %}) — 같은 채널의 핵심 개념 정리 영상
 - [Context Engineering — AI에게 무엇을 주고, 무엇을 뺄 것인가]({% post_url 2026-06-08-context-engineering %}) — 하네스 설계의 핵심인 컨텍스트 관리
 - [AI 에이전트 활용을 위한 기초 지식: 필수 온보딩 가이드]({% post_url 2026-05-18-onboarding-guide-for-ai-reference %}) — 에이전트 기초 개념
+- [결제 시스템에서 AI 코딩 에이전트 쓰는 법 — 실수가 허용되지 않는 도메인의 원칙]({% post_url 2026-06-10-ai-agent-high-stakes-payment %}) — 하네스 통제 구조 실전 적용
