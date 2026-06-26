@@ -1,0 +1,22 @@
+[
+  {"query": "이 영상 보고 글 하나 써줘 https://youtu.be/dQw4w9WgXcQ 클로드 코드 서브에이전트 병렬 처리 다루는 13분짜리 영상이야. 블로그에 올릴거야", "should_trigger": true},
+  {"query": "anthropic이 어제 발표한 context compaction 기능 정리해서 새 포스트 하나 추가해줘. skills-mcp 카테고리가 맞을듯", "should_trigger": true},
+  {"query": "방금 쓴 ollama 글 좀 다시 써줘. 너무 어려운것 같아서 입문자도 따라올 수 있게 풀어서", "should_trigger": true},
+  {"query": "smithery라는 mcp 레지스트리 사이트 소개하는 글 만들어서 발행해줘 https://smithery.ai", "should_trigger": true},
+  {"query": "프롬프트 체이닝 패턴 글 하나 추가하고 기존 프롬프트 엔지니어링 글들이랑 서로 링크 걸어줘", "should_trigger": true},
+  {"query": "블로그에 글 하나 더 올리자. 주제는 claude code hooks로 저장할때 자동 포맷팅 거는 법", "should_trigger": true},
+  {"query": "이 깃헙 레포 소개글 써줘 github.com/BerriAI/litellm 여러 LLM을 하나의 api로 부르는 도구야", "should_trigger": true},
+  {"query": "gpt-5.5 나왔던데 cloud-llm 카테고리에 동향 정리 글 하나 써줘", "should_trigger": true},
+  {"query": "lm studio 글 제목이랑 excerpt 좀 다듬고 관련글 링크 더 추가해서 다시 푸시해줘", "should_trigger": true},
+  {"query": "이번주에 본 mcp 관련 아티클들 묶어서 정리 포스트 하나 만들어줘 use-cases 말고 skills-mcp로", "should_trigger": true},
+  {"query": "이 프로젝트 루트에 CLAUDE.md 하나 만들어줘. 빌드 명령이랑 코딩 규칙 정리해서", "should_trigger": false},
+  {"query": "새 jekyll 블로그 사이트 하나 처음부터 셋업해줘. _config.yml이랑 레이아웃까지", "should_trigger": false},
+  {"query": "이 레포 README.md 좀 채워줘. 설치 방법이랑 사용법 섹션으로", "should_trigger": false},
+  {"query": "_posts 폴더 전체 markdownlint 에러 좀 한번에 고쳐줘 MD009랑 MD032 위주로", "should_trigger": false},
+  {"query": "post_url 태그랑 permalink가 정확히 어떻게 연결되는지 설명만 해줘", "should_trigger": false},
+  {"query": "링크드인에 올릴 짧은 글 하나 써줘. AI 코딩 에이전트 요즘 트렌드 관련으로", "should_trigger": false},
+  {"query": "_config.yml에 'agents'라는 카테고리 하나 새로 추가해줘 아이콘은 🤖으로", "should_trigger": false},
+  {"query": "git 커밋 메시지 컨벤션 좀 정리해서 알려줘. conventional commits 기준으로", "should_trigger": false},
+  {"query": "내 프로젝트에 어떤 claude code hook이랑 mcp 추가하면 좋을지 분석해서 추천해줘", "should_trigger": false},
+  {"query": "AI 코딩 도구들 비교 표 만들어서 notion 페이지에 정리해줘 claude code, cursor, copilot", "should_trigger": false}
+]

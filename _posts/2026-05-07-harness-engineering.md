@@ -29,6 +29,7 @@ excerpt: "코딩알려주는누나 채널의 영상으로 하네스 엔지니어
 
 **관련 글**
 
+- [Loop Engineering — 에이전트 완성도를 끝까지 올리는 반복 설계]({% post_url 2026-06-25-loop-engineering-quality-automation %}) — 하네스 바깥이 아니라, 하네스 위에서 도는 품질 개선 루프
 - [클로드 스킬, 서브에이전트, 커맨드 개념 한번에 이해하기]({% post_url 2026-05-07-claude-skill-subagent-command %}) — 같은 채널의 핵심 개념 정리 영상
 - [Context Engineering — AI에게 무엇을 주고, 무엇을 뺄 것인가]({% post_url 2026-06-08-context-engineering %}) — 하네스 설계의 핵심인 컨텍스트 관리
 - [AI 에이전트 활용을 위한 기초 지식: 필수 온보딩 가이드]({% post_url 2026-05-18-onboarding-guide-for-ai-reference %}) — 에이전트 기초 개념
