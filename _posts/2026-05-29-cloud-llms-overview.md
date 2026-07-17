@@ -87,6 +87,7 @@ Google Gemini는 업계 최대 수준의 컨텍스트 창과 가성비로 독자
 
 **관련 글**
 
+- [2026년 7월 클라우드 LLM 선택 가이드 — GPT-5.6, Claude Sonnet 5, Gemini 3.5]({% post_url 2026-07-17-cloud-llm-agent-model-selector-july-2026 %}) — 7월 기준 agentic 모델 선택 기준 업데이트
 - [Anthropic Claude 실전 가이드 — Opus, Sonnet, Haiku 선택법]({% post_url 2026-06-06-anthropic-claude-guide %}) — Claude 모델 선택 기준 심화
 - [OpenRouter: 왜 써야 하고, 어떻게 모든 LLM을 통합할까?]({% post_url 2026-05-11-openrouter-unified-api %}) — 하나의 API 키로 여러 모델 비교 테스트
 - [Groq: 번개처럼 빠른 속도의 초고속 AI 추론 서비스]({% post_url 2026-05-11-groq-ultra-fast-inference %}) — 추론 속도가 최우선이라면
