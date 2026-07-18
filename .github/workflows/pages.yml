@@ -25,16 +25,12 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          ruby-version: "3.1.7"
-          bundler-cache: true
-
-      - name: Build site
-        env:
-          JEKYLL_ENV: production
-        run: bundle exec jekyll build
+          source: ./
+          destination: ./_site
+          future: false
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
