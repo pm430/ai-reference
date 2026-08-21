@@ -15,6 +15,8 @@
     <div class="sidebar-section">
       <nav class="sidebar-nav">
         <a href="{{ site.baseurl }}/" class="sidebar-link{% if page.url == '/' %} active{% endif %}">홈</a>
+        <a href="{{ site.baseurl }}/pages/glossary/" class="sidebar-link{% if page.url contains 'glossary' %} active{% endif %}">📖 용어 사전</a>
+        <a href="{{ site.baseurl }}/pages/tags/" class="sidebar-link{% if page.url contains 'tags' %} active{% endif %}">🏷️ 태그 목록</a>
       </nav>
     </div>
 

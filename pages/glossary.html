@@ -1,0 +1,176 @@
+---
+layout: default
+title: AI 용어 사전 (Glossary)
+permalink: /pages/glossary/
+---
+
+<div class="page-wrapper">
+  <div class="page-breadcrumb">
+    <a href="{{ site.baseurl }}/">home</a>
+    <span>/</span>
+    <span>glossary</span>
+  </div>
+
+  <div class="cat-header" style="margin-bottom: 2rem;">
+    <h1 class="cat-title" style="font-size: 2rem; font-weight: 800; display: flex; align-items: center; gap: 0.6rem;">
+      <span>📖</span> AI 용어 사전 (Glossary)
+    </h1>
+    <p class="cat-desc-text" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-top: 0.5rem;">
+      AI 에이전트, 프롬프트/컨텍스트 엔지니어링, 최신 추론 모델, 도구 연동 등 핵심 개념과 실무 용어를 한곳에서 검색하고 찾아볼 수 있습니다.
+    </p>
+  </div>
+
+  <!-- 검색 및 필터 영역 -->
+  <div class="glossary-controls" style="margin-bottom: 2rem; background: var(--bg-card, rgba(255,255,255,0.03)); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;">
+    <div style="position: relative; margin-bottom: 1rem;">
+      <input type="text" id="glossarySearch" placeholder="🔍 용어, 영문명, 설명, 태그로 실시간 검색..." 
+             style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg, #1a1a1a); color: var(--text); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+    </div>
+    
+    <div class="glossary-filters" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+      <span style="font-size: 0.8rem; color: var(--text-faint); font-weight: 600; margin-right: 0.25rem;">분류:</span>
+      <button class="glossary-filter-btn active" data-category="all" style="padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: var(--accent, #6366f1); color: #fff; font-size: 0.82rem; cursor: pointer; font-weight: 600;">전체 보기</button>
+      <button class="glossary-filter-btn" data-category="agent" style="padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.82rem; cursor: pointer;">🤖 에이전트 & 워크플로우</button>
+      <button class="glossary-filter-btn" data-category="model" style="padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.82rem; cursor: pointer;">🧠 모델 & 추론</button>
+      <button class="glossary-filter-btn" data-category="prompt" style="padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.82rem; cursor: pointer;">✍️ 컨텍스트 & 규칙</button>
+      <button class="glossary-filter-btn" data-category="tools" style="padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.82rem; cursor: pointer;">🔧 도구 & 프로토콜</button>
+      <button class="glossary-filter-btn" data-category="engineering" style="padding: 0.35rem 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.82rem; cursor: pointer;">🛡️ 엔지니어링 & 검증</button>
+    </div>
+  </div>
+
+  <!-- 용어 개수 카운터 -->
+  <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+    <span>총 <strong id="termCount" style="color: var(--accent, #6366f1);">{{ site.data.glossary.size }}</strong>개의 용어가 등록되어 있습니다.</span>
+  </div>
+
+  <!-- 용어 카드 그리드 -->
+  <div class="glossary-list" id="glossaryList" style="display: flex; flex-direction: column; gap: 1.25rem;">
+    {% for item in site.data.glossary %}
+    <div class="glossary-card" id="{{ item.id }}" data-category="{{ item.category }}" 
+         data-search="{{ item.term | downcase }} {{ item.korean | downcase }} {{ item.summary | downcase }} {{ item.description | downcase }} {{ item.tags | join: ' ' | downcase }}"
+         style="border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; background: var(--bg-card, rgba(255,255,255,0.02)); transition: all 0.2s ease;">
+      
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.6rem;">
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--text);">
+            {{ item.term }}
+            {% if item.korean %}
+              <span style="font-size: 0.95rem; font-weight: 500; color: var(--text-muted); margin-left: 0.4rem;">({{ item.korean }})</span>
+            {% endif %}
+          </h2>
+        </div>
+        <span class="glossary-cat-badge" style="font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 6px; background: rgba(99, 102, 241, 0.15); color: var(--accent, #6366f1); font-weight: 600; border: 1px solid rgba(99, 102, 241, 0.3);">
+          {{ item.category_name }}
+        </span>
+      </div>
+
+      <p style="font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.5; margin: 0.5rem 0 0.8rem 0; padding-left: 0.75rem; border-left: 3px solid var(--accent, #6366f1);">
+        {{ item.summary }}
+      </p>
+
+      <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+        {{ item.description | markdownify }}
+      </div>
+
+      <!-- 태그 & 관련 링크 -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; pt: 0.75rem; border-top: 1px dashed var(--border); padding-top: 0.75rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+          {% for tag in item.tags %}
+            <span style="font-size: 0.75rem; color: var(--text-faint); background: var(--bg, #111); border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 4px;">#{{ tag }}</span>
+          {% endfor %}
+        </div>
+
+        {% if item.references.size > 0 %}
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+            <span style="font-size: 0.75rem; color: var(--text-muted);">관련 자료:</span>
+            {% for ref in item.references %}
+              <a href="{{ ref.url }}" style="font-size: 0.8rem; color: var(--accent, #6366f1); text-decoration: underline; text-underline-offset: 3px;">{{ ref.title }} ↗</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="noResults" style="display: none; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+    <p style="font-size: 1rem; font-weight: 600;">검색 결과가 없습니다.</p>
+    <p style="font-size: 0.85rem; color: var(--text-faint);">다른 검색어나 전체 분류를 선택해 보세요.</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('glossarySearch');
+  const filterBtns = document.querySelectorAll('.glossary-filter-btn');
+  const cards = document.querySelectorAll('.glossary-card');
+  const termCountEl = document.getElementById('termCount');
+  const noResults = document.getElementById('noResults');
+
+  let currentCategory = 'all';
+  let searchQuery = '';
+
+  function filterCards() {
+    let visibleCount = 0;
+    const query = searchQuery.trim().toLowerCase();
+
+    cards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const searchData = card.getAttribute('data-search') || '';
+
+      const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+      const matchesSearch = (!query || searchData.includes(query));
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    termCountEl.textContent = visibleCount;
+    if (visibleCount === 0) {
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+    }
+  }
+
+  searchInput.addEventListener('input', function(e) {
+    searchQuery = e.target.value;
+    filterCards();
+  });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'transparent';
+        b.style.color = 'var(--text-muted)';
+      });
+      this.classList.add('active');
+      this.style.background = 'var(--accent, #6366f1)';
+      this.style.color = '#fff';
+
+      currentCategory = this.getAttribute('data-category');
+      filterCards();
+    });
+  });
+
+  // URL hash navigation support (e.g. #mcp)
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
+    const targetCard = document.getElementById(targetId);
+    if (targetCard) {
+      setTimeout(() => {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetCard.style.borderColor = 'var(--accent, #6366f1)';
+        targetCard.style.boxShadow = '0 0 15px rgba(99, 102, 241, 0.3)';
+      }, 200);
+    }
+  }
+});
+</script>
