@@ -77,3 +77,4 @@ AI 코딩 에이전트를 개발 파이프라인에 통합하는 것은 이제 �
 - [디버깅 파트너 — AI와 함께 버그 헌팅하는 법]({% post_url 2026-06-05-ai-debugging-partner %}) — 디버깅 워크플로우를 단계별로 일반화한 가이드
 - [AI와 함께하는 리팩토링 — 실전 5단계 워크플로우]({% post_url 2026-06-04-ai-refactor-workflow %}) — 또 다른 실전 적용 사례
 - [AI 코딩 에이전트 CLI 설치 가이드 (Claude Code, Gemini, Codex, Ollama)]({% post_url 2026-05-07-ai-cli-tools-installation %}) — 도구 설치 방법
+- [AI 코딩 IDE 정리 — Orca, Antigravity, Cursor, Windsurf 비교]({% post_url 2026-08-21-ai-ide-comparison-orca-antigravity-cursor-windsurf %}) — CLI 에이전트 대신 IDE 형태로 AI를 쓰는 도구 비교
