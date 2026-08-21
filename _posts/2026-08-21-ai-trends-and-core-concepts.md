@@ -3,7 +3,7 @@ layout: post
 title: "최신 AI 기술 동향과 개발자가 꼭 알아야 할 핵심 개념 총정리"
 categories: onboarding
 tags: [AI Trends, Agentic Workflow, Reasoning, Context Engineering, MCP, Harness Engineering, Vibe Coding, YouTube Reference]
-date: 2026-08-21 09:30:00 +0900
+date: 2026-08-21 00:00:00 +0900
 excerpt: "단순 챗봇에서 자율 코딩 에이전트와 추론 모델로 급변한 최신 AI 동향과 실무 개발자가 반드시 알아야 할 7가지 핵심 개념, 유튜브 실전 팁을 정리합니다."
 ---
 
