@@ -6,11 +6,11 @@
       <a href="{{ site.baseurl }}/" class="sidebar-title">AI Reference</a>
     </div>
 
-    <div class="sidebar-search">
-      <span>⌕</span>
-      <input type="text" id="searchInput" placeholder="검색 (⌘K)…" aria-label="검색" readonly>
+    <button type="button" class="sidebar-search" id="searchTrigger" aria-haspopup="dialog" aria-controls="searchModal">
+      <span aria-hidden="true">⌕</span>
+      <span class="sidebar-search-label">검색…</span>
       <span class="search-kbd">⌘K</span>
-    </div>
+    </button>
 
     <div class="sidebar-section">
       <nav class="sidebar-nav">
