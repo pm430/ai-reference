@@ -141,6 +141,71 @@
       });
     }
 
+    // --- Post TOC & ScrollSpy & Header Anchors ---------------------
+    var postContent = document.querySelector('.post-content');
+    var postToc = document.getElementById('postToc');
+    var tocList = document.getElementById('tocList');
+
+    if (postContent) {
+      var headers = postContent.querySelectorAll('h2, h3');
+      if (headers.length > 1 && postToc && tocList) {
+        postToc.style.display = 'block';
+        headers.forEach(function(header, index) {
+          var id = header.id || ('heading-' + index);
+          header.id = id;
+
+          // Add to TOC
+          var li = document.createElement('li');
+          li.className = 'toc-' + header.tagName.toLowerCase();
+          var a = document.createElement('a');
+          a.href = '#' + id;
+          a.textContent = header.textContent.replace(/^#\s*/, '');
+          li.appendChild(a);
+          tocList.appendChild(li);
+
+          // Add header anchor
+          var anchor = document.createElement('a');
+          anchor.className = 'header-anchor';
+          anchor.href = '#' + id;
+          anchor.setAttribute('aria-label', '링크 복사');
+          anchor.textContent = '#';
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetUrl = window.location.origin + window.location.pathname + '#' + id;
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(targetUrl);
+            }
+            history.pushState(null, '', '#' + id);
+            header.scrollIntoView({ behavior: 'smooth' });
+          });
+          header.appendChild(anchor);
+        });
+
+        // ScrollSpy
+        var tocLinks = tocList.querySelectorAll('a');
+        var observerOptions = {
+          root: null,
+          rootMargin: '-10% 0px -75% 0px',
+          threshold: 0
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              tocLinks.forEach(function(link) {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        }, observerOptions);
+
+        headers.forEach(function(header) {
+          observer.observe(header);
+        });
+      }
+    }
+
     // Keyboard shortcuts: ⌘K / Ctrl+K to open, Esc to close
     document.addEventListener('keydown', function(e) {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {

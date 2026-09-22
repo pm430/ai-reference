@@ -70,3 +70,5 @@ Smithery는 MCP 생태계의 '앱스토어'와 같습니다. 내 에이전트에
 
 - [OpenRouter: 모든 LLM을 하나의 API로]({% post_url 2026-05-11-openrouter-unified-api %}) - 연동된 MCP 도구를 다양한 모델에서 테스트해 보세요.
 - [Claude Skill과 Subagent 활용법]({% post_url 2026-05-07-claude-skill-subagent-command %}) - MCP를 활용한 더 깊은 에이전트 확장 개념
+- [MCP 서버 직접 만들기 — Python으로 나만의 도구 등록하기]({% post_url 2026-06-09-build-mcp-server-python %}) - Smithery에 등록할 나만의 MCP 서버를 직접 개발하는 방법
+- [MCP 보안과 인증 — OAuth 2.1 시대에 서버를 안전하게 연결하는 법]({% post_url 2026-07-17-mcp-security-authorization %}) - 외부 레지스트리에서 MCP 서버를 가져올 때 지켜야 할 보안 원칙

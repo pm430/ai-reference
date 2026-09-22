@@ -11,21 +11,89 @@ excerpt: "코딩알려주는누나 채널의 영상으로 하네스 엔지니어
 
 **출처:** [코딩알려주는누나](https://www.youtube.com/@coding_unnie)
 
-## 영상에서 다루는 내용
+## 하네스 엔지니어링(Harness Engineering)이란?
 
-- **하네스 엔지니어링(Harness Engineering)** — AI 에이전트가 안전하고 예측 가능하게 동작하도록 제어 구조를 설계하는 기법
-- 하네스의 존재 이유와 실제 적용 시나리오
-- 실전 예제를 통한 구현 방법
+말에게 마구(Harness)를 씌워야 기수의 의도대로 안전하게 달릴 수 있듯이, **하네스 엔지니어링**은 확률적으로 동작하는 비결정적(Non-deterministic) LLM을 **결정론적 소프트웨어의 안전 경계(Guardrails) 안에 가두어 통제하는 아키텍처 기법**을 말합니다.
 
-## 핵심 포인트
-
-> 하네스 엔지니어링은 AI 에이전트의 **동작 범위와 안전성**을 확보하기 위한 설계 접근법입니다.
-
-- 에이전트가 의도치 않은 동작을 하지 않도록 경계를 설정
-- 반복 작업의 신뢰성을 높이는 구조적 접근
-- 실전 예제를 통해 이론을 코드로 연결하는 방법 제시
+프롬프트 엔지니어링이 "AI에게 말을 예쁘게 거는 법"이라면, 하네스 엔지니어링은 "AI가 헛소리를 하거나 위험한 명령을 실행하려 해도 시스템이 원천 차단하고 스스로 바로잡도록 틀을 짜는 엔지니어링"입니다.
 
 ---
+
+## 하네스를 구성하는 4대 필수 레이어
+
+```text
+[ 사용자 입력 ]
+       │
+  ▼ 1. Input Guardrail (의도 분류, 프롬프트 인젝션 차단, 컨텍스트 축소)
+┌──────────────────────────────────────────────┐
+│  AI 에이전트 (LLM 계획 및 도구 호출)          │
+└──────────────────────────────────────────────┘
+       │
+  ▼ 2. Execution Sandbox (권한 제한: 파일 쓰기 제한, 가상 격리)
+┌──────────────────────────────────────────────┐
+│  도구 실행 (코드 실행, API 호출, DB 쿼리)      │
+└──────────────────────────────────────────────┘
+       │
+  ▼ 3. Deterministic Evaluator (테스트·린트 실행 후 피드백 반환)
+       │
+  ▼ 4. Circuit Breaker (3회 실패 시 중단 후 사람 승인 요청)
+       │
+[ 최종 승인된 결과물 ]
+```
+
+### 1. 입력 가드레일 (Input Boundary)
+- **컨텍스트 제한**: 불필요한 전체 저장소를 주입하지 않고, 작업과 관련된 파일 목록만 주입
+- **프롬프트 인젝션 방지**: 외부 웹 페이지나 사용자 입력 데이터에서 시스템 명령을 탈취하려는 시도 무력화
+
+### 2. 실행 샌드박스 (Execution Sandbox)
+- **위험 명령어 차단**: `rm -rf`, `DROP TABLE`, 외부 결제 API 호출 등 비가역적 위험 작업은 에이전트 단독으로 실행하지 못하도록 시스템 레벨에서 승인(Human-in-the-loop) 요구
+- **파일 변경 격리**: 변경 사항을 별도의 임시 브랜치나 가상 파일 시스템에 먼저 반영하고 검증
+
+### 3. 결정론적 평가자 (Deterministic Evaluator)
+- "코드가 잘 작성되었는가?"를 다시 LLM에게 묻지 않고, **단위 테스트(`pytest`), 타입 체커(`mypy`), 린터(`ruff`, `eslint`)**라는 절대적인 컴파일러/테스트 도구에 맡깁니다.
+- 테스트가 실패하면 실패 스택트레이스를 다시 에이전트의 피드백 입력으로 되먹임(Feedback Loop)합니다.
+
+### 4. 서킷 브레이커 (Circuit Breaker)
+- 에이전트가 버그를 수정하지 못하고 동일한 오류를 3~5회 반복하면 무한 루프로 인한 토큰 낭비와 코드 오염을 막기 위해 실행을 강제 중단하고 사람에게 제어권을 넘깁니다.
+
+---
+
+## 실전 파이썬 하네스 패턴 예시
+
+```python
+def agent_harness_loop(task_description: str, max_trials: int = 3):
+    """결정론적 테스트가 통과할 때까지 에이전트를 루프 안에 가두는 하네스"""
+    context = prepare_focused_context(task_description)
+    trials = 0
+
+    while trials < max_trials:
+        # 1. AI 코드 수정 제안
+        plan_and_edits = agent.generate_edits(context, task_description)
+        
+        # 2. 격리된 샌드박스에 반영
+        apply_edits_sandbox(plan_and_edits)
+        
+        # 3. 결정론적 검증 (테스트 스위트 실행)
+        test_result = run_deterministic_tests()
+        
+        if test_result.passed:
+            # 4. 검증 통과 시에만 본 코드베이스에 병합
+            merge_to_working_branch()
+            return "Task completed successfully"
+            
+        # 실패 시 에러 피드백을 주입하여 재시도
+        trials += 1
+        context.append_feedback(test_result.error_message)
+
+    # 서킷 브레이커 발동
+    alert_human_developer("Harness stopped: Failed after max trials.")
+```
+
+> **요약:**  
+> 에이전트의 지능을 믿는 것이 아니라, 에이전트를 둘러싼 **테스트 하네스와 자동 검증 루프**를 믿는 것이 프로덕션 레벨 에이전트 구축의 핵심입니다.
+
+---
+
 
 **관련 글**
 

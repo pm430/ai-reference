@@ -72,3 +72,5 @@ Gemini CLI의 Skill 기능을 통해 단순한 AI 비서를 넘어, 우리 팀�
 
 - [Claude Skill과 Subagent 활용법]({% post_url 2026-05-07-claude-skill-subagent-command %}) - 에이전트 확장의 기초 개념 이해하기
 - [ai-reference 프로젝트 온보딩 가이드]({% post_url 2026-05-18-onboarding-guide-for-ai-reference %}) - 저장소 협업 규칙 알아보기
+- [claude-code-setup — 코드베이스를 분석해 자동화를 추천하는 공식 플러그인]({% post_url 2026-06-08-claude-code-setup-guide %}) - 프로젝트 분석 기반의 에이전트 환경 자동화
+- [AGENTS.md — Claude Code·Codex·Gemini CLI를 관통하는 공통 설정 표준]({% post_url 2026-06-10-agents-md-cross-tool-standard %}) - 다양한 AI CLI 도구를 아우르는 공통 설정 표준

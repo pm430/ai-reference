@@ -97,3 +97,5 @@ LLM Wiki를 시작하려면 거창한 서버나 데이터베이스가 필요 없
 **관련 포스트:**
 - [Ollama로 로컬에서 LLM 실행하기]({% post_url 2026-05-11-ollama-local-llm %}) - 내 개인 문서를 처리할 로컬 AI 엔진
 - [Smithery: MCP 서버를 찾는 가장 쉬운 방법]({% post_url 2026-05-11-smithery-mcp-registry %}) - 옵시디언 폴더를 AI에게 연결하는 도구 찾기
+- [Context Engineering — AI에게 무엇을 주고, 무엇을 뺄 것인가]({% post_url 2026-06-08-context-engineering %}) - 지식 베이스 문서를 AI 프롬프트에 효과적으로 주입하는 전략
+- [CLAUDE.md 잘 쓰는 법 — 매 세션 읽히는 프로젝트 메모리 설계]({% post_url 2026-06-09-claude-md-best-practices %}) - 프로젝트 레벨의 규칙과 메모리 구성법
