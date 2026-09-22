@@ -1079,6 +1079,7 @@ input:focus-visible,
   padding: 1.25rem;
   margin-bottom: 2.5rem;
   font-size: 0.9rem;
+  overflow-x: hidden;
 }
 .post-toc-title {
   font-weight: 700;
@@ -1136,7 +1137,7 @@ input:focus-visible,
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
     margin: 0;
-    padding: 0 0 0 1rem;
+    padding: 0 4px 0 1rem;
     border: 0;
     border-left: 1px solid var(--border);
     border-radius: 0;
