@@ -4,11 +4,7 @@
 (function() {
   'use strict';
 
-  // Theme: apply stored preference ASAP to avoid FOUC
-  (function() {
-    var t = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', t);
-  })();
+  // Theme is applied synchronously by theme-init.js before this script runs.
 
   function updateThemeBtns(t) {
     document.querySelectorAll('.theme-btn').forEach(function(b) {
@@ -40,10 +36,11 @@
 
     function toggleSidebar() {
       if (!sidebar || !overlay) return;
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('open');
+      var isOpen = sidebar.classList.toggle('open');
+      overlay.classList.toggle('open', isOpen);
       if (menuBtn) {
-        menuBtn.setAttribute('aria-expanded', sidebar.classList.contains('open'));
+        menuBtn.setAttribute('aria-expanded', isOpen);
+        menuBtn.textContent = isOpen ? '✕' : '☰';
       }
     }
 
@@ -98,7 +95,7 @@
     var searchModal = document.getElementById('searchModal');
     var modalInput = document.getElementById('modalSearchInput');
     var modalResults = document.getElementById('modalSearchResults');
-    var sidebarSearch = document.querySelector('.sidebar-search');
+    var sidebarSearch = document.getElementById('searchTrigger');
 
     function openSearch() {
       if (!searchModal) return;
@@ -215,6 +212,10 @@
       }
       if (e.key === 'Escape' && searchModal && searchModal.classList.contains('open')) {
         closeSearch();
+        return;
+      }
+      if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) {
+        toggleSidebar();
       }
     });
   });
