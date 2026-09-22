@@ -7,7 +7,7 @@ layout: default
 {% assign post_s = page.date | date: "%s" | plus: 0 %}
 {% assign diff_days = now_s | minus: post_s | divided_by: 86400 %}
 
-<div class="page-wrapper">
+<div class="page-wrapper post-page">
   <div class="post-nav">
     <a href="{{ site.baseurl }}/pages/{{ page.categories[0] }}/" class="back-link">← {{ cat.name | default: "목록" }}</a>
   </div>

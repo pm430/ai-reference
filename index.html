@@ -66,8 +66,9 @@ title: 홈
         {% assign post_s = post.date | date: "%s" | plus: 0 %}
         {% assign diff = now_s | minus: post_s | divided_by: 86400 %}
         {% assign read_min = post.content | number_of_words | divided_by: 200 | at_least: 1 %}
+        {% assign display_idx = site.posts.size | minus: forloop.index | plus: 1 %}
         <div class="post-list-item">
-          <span class="post-list-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <span class="post-list-num">{% if display_idx < 10 %}0{% endif %}{{ display_idx }}</span>
           <div class="post-list-main">
             <a href="{{ post.url | prepend: site.baseurl }}" class="post-list-title">{{ post.title }}</a>
             <div class="post-list-meta">

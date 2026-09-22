@@ -65,7 +65,7 @@ layout: default
           <span class="featured-label-pick">editor's pick</span>
         </div>
         <div class="featured-card">
-          <div class="featured-card-eyebrow">최신 추천 · {{ cat.name }}</div>
+          <div class="featured-card-eyebrow">글 {{ cat_posts.size }} · 최신 추천 · {{ cat.name }}</div>
           <a href="{{ featured.url | prepend: site.baseurl }}" class="featured-card-title" style="display: block; color: inherit; text-decoration: none;">{{ featured.title }}</a>
           {% if featured.excerpt %}
           <div class="featured-card-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</div>
@@ -93,7 +93,7 @@ layout: default
             {% assign post_s = post.date | date: "%s" | plus: 0 %}
             {% assign diff = now_s | minus: post_s | divided_by: 86400 %}
             {% assign read_min = post.content | number_of_words | divided_by: 200 | at_least: 1 %}
-            {% assign display_idx = forloop.index | plus: 1 %}
+            {% assign display_idx = cat_posts.size | minus: forloop.index %}
             <div class="article-item">
               <span class="article-num">{% if display_idx < 10 %}0{% endif %}{{ display_idx }}</span>
               <div class="article-main">
